@@ -1,0 +1,77 @@
+<!-- include css files -->
+<?php echo $this->tag->stylesheetLink("css/datepicker.min.css");?>
+<?php echo $this->tag->stylesheetLink("css/font-awesome.min.css");?>
+<?php echo $this->tag->stylesheetLink("css/bootstrap.min.css");?>
+<?php echo $this->tag->stylesheetLink("css/mystyle.css");?>
+<?php echo $this->tag->stylesheetLink("css/responsive.css");?>
+<!-- include js files -->
+<?php echo $this->tag->javascriptInclude("js/jquery-1.12.3.min.js");?>
+<?php echo $this->tag->javascriptInclude("js/bootstrap.min.js");?>
+<?php echo $this->tag->javascriptInclude("js/myplugin.js");?>
+<?php echo $this->tag->javascriptInclude("js/datepicker.min.js");?>
+
+
+<h2 class="text-center h1">Add new Trainer</h2>
+
+<?php echo $this->tag->form('index/add') ?>
+    <div class="container">
+        <div class="row">
+            <div class="form-group  col-sm-4">
+                <label for="name">Name</label>
+                <?php echo $this->tag->textField(["name","class"=>"form-control"]) ?>
+            </div>
+
+            <div class="form-group  col-sm-4">
+                    <label for="name">E-Mail</label>
+                    <?php echo $this->tag->textField(["email","class"=>"form-control"]) ?>
+            </div>
+            <div class="form-group  col-sm-4">
+                <label for="phone">Phone</label>
+                <?php echo $this->tag->textField(["phone","class"=>"form-control"]) ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group  col-sm-4">
+                <label for="initial_interview_date">initial Interview Date</label>
+                <input id="initial_interview_date" name="initial_interview_date" class='datepicker form-control' size='5' /> 
+            </div>
+            <div class="form-group  col-sm-4">
+                <label for="start_date_trial_period">Start Date Trial Period</label>
+                <input id="start_date_trial_period" name="start_date_trial_period" class='datepicker form-control' size='11' /> 
+            </div>
+            <div class="form-group col-sm-4">
+                <label for="end_date_trial_period">End Date Trial Period</label>
+                <input id="end_date_trial_period" name="end_date_trial_period" class='datepicker form-control' size='11'/> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label for="specialization">Specialization</label>
+                <?php echo $this->tag->textField(["specialization","class"=>"form-control"]) ?>
+            </div>
+            <div class="form-group col-sm-4">
+                <label for="initial_assessment">initial assessment</label>
+                <?php echo $this->tag->textField(["initial_assessment","class"=>"form-control"]) ?>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label for="end_trial_period_assessment">end Trial Period Assessment</label>
+                <?php echo $this->tag->textField(["end_trial_period_assessment","class"=>"form-control"]) ?>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="form-group col-sm-4">
+                <label for="cv">cv</label>
+                <?php echo $this->tag->textField(["cv","class"=>"form-control"]) ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <?php echo $this->tag->submitButton(["Register","class"=>"btn btn-primary"]) ?>
+            
+                <?php echo $this->tag->linkTo(["index/browse", "browse All trainers","class"=>"btn btn-primary"]); ?>
+            </div>
+        </div>
+    </div>
+</form>

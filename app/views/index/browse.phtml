@@ -1,0 +1,51 @@
+<!-- include css files -->
+<?php echo $this->tag->stylesheetLink("css/jquery.datetimepicker.min.css");?>
+<?php echo $this->tag->stylesheetLink("css/font-awesome.min.css");?>
+<?php echo $this->tag->stylesheetLink("css/bootstrap.min.css");?>
+<?php echo $this->tag->stylesheetLink("css/mystyle.css");?>
+<?php echo $this->tag->stylesheetLink("css/responsive.css");?>
+<!-- include js files -->
+<?php echo $this->tag->javascriptInclude("js/jquery-1.12.3.min.js");?>
+<?php echo $this->tag->javascriptInclude("js/jquery.js");?>
+<?php echo $this->tag->javascriptInclude("js/bootstrap.min.js");?>
+<?php echo $this->tag->javascriptInclude("js/myplugin.js");?>
+<?php echo $this->tag->javascriptInclude("js/jquery.datetimepicker.full.min.js");?>
+<?php use Phalcon\Tag;?>
+<table class="table main-table table-striped table-bordered text-center" align="center">
+    <thead>
+        <tr>
+            <th class="text-center">Id</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Phone</th>
+            <th class="text-center">initial Interview Date</th>
+            <th class="text-center">Specialization</th>
+            <th class="text-center">start date trial period</th>
+            <th class="text-center">end date trial period</th>
+            <th class="text-center">initial assessment</th>
+            <th class="text-center">end trial period assessment</th>
+            <th class="text-center">cv</th>
+        </tr>
+    </thead>
+        
+    <tbody>
+        <?php foreach ($trainers as $trainer): ?>
+        <tr>
+            <td><?php echo $trainer->id ;?></td>
+            <td><?php echo $trainer->name;?></td>
+            <td><?php echo $trainer->email;?></td>
+            <td><?php echo $trainer->phone;?></td>
+            <td><?php echo $trainer->initial_interview_date;?></td>
+            <td><?php echo $trainer->specialization;?></td>
+            <td><?php echo $trainer->start_date_trial_period;?></td>
+            <td><?php echo $trainer->end_date_trial_period;?></td>
+            <td><?php echo $trainer->initial_assessment;?></td>
+            <td><?php echo $trainer->end_trial_period_assessment;?></td>
+            <td><?php echo $trainer->cv;?></td>
+            <td><?php echo Tag::linkTo(['index/delete?id='.$trainer->id, 'Delete',"class"=>"btn btn-danger"]);?></td>
+            <td><?php echo Tag::linkTo(['index/update?id='.$trainer->id, 'update',"class"=>"btn btn-success"]);?></td>
+        </tr>
+        
+        <?php endforeach; ?>
+    </tbody>
+</table>

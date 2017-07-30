@@ -1,0 +1,16 @@
+
+
+.main-table thead tr{
+    background-color: #44494e;
+    color: #fff;
+}
+
+.main-table tr td .btn-success{
+    margin-right: 10px;
+}
+.table-striped>tbody>tr:nth-of-type(odd){
+    background: #ddd;
+}
+.table-striped>tbody>tr:nth-of-type(odd)>td{
+    border-color: #fff;
+}

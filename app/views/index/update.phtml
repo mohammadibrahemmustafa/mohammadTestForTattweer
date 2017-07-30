@@ -1,0 +1,87 @@
+<!-- include css files -->
+<?php echo $this->tag->stylesheetLink("css/datetimepicker.min.css");?>
+<?php echo $this->tag->stylesheetLink("css/font-awesome.min.css");?>
+<?php echo $this->tag->stylesheetLink("css/bootstrap.min.css");?>
+<?php echo $this->tag->stylesheetLink("css/mystyle.css");?>
+<?php echo $this->tag->stylesheetLink("css/responsive.css");?>
+<!-- include js files -->
+<?php echo $this->tag->javascriptInclude("js/jquery-1.12.3.min.js");?>
+<?php echo $this->tag->javascriptInclude("js/bootstrap.min.js");?>
+<?php echo $this->tag->javascriptInclude("js/myplugin.js");?>
+<?php echo $this->tag->javascriptInclude("js/datetimepicker.min.js");?>
+
+<h2 class="text-center h1">update new Trainer</h2>
+
+<?php echo $this->tag->form('index/edit') ?>
+<div class="container">
+    
+    <div class="row">
+            <div class="form-group  col-sm-4">
+        	<label for="id">Id</label>
+		<?php 
+                    echo $this->tag->textField(["id","readonly"=>true,"value"=>$trainer->id,"class"=>"form-control"]); ?>
+            </div>
+    </div>
+    <div class="row">
+            <div class="form-group  col-sm-4">
+                    <label for="name">Name</label>
+                    <?php echo $this->tag->textField(["name","value"=>$trainer->name,"class"=>"form-control"]); ?>
+            </div>
+
+            <div class="form-group  col-sm-4">
+                    <label for="name">E-Mail</label>
+                    <?php echo $this->tag->textField(["email","value"=>$trainer->email,"class"=>"form-control"]) ?>
+            </div>
+
+            <div class="form-group  col-sm-4">
+                    <label for="phone">Phone</label>
+                    <?php echo $this->tag->textField(["phone","value"=>$trainer->phone,"class"=>"form-control"]) ?>
+            </div>
+    </div>
+
+    <div class="row">
+            <div class="form-group  col-sm-4">
+		<label for="initial_interview_date">initial Interview Date</label>
+                <input id="initial_interview_date" value="<?php echo $trainer->initial_interview_date;?>" name="initial_interview_date" class='datepicker form-control' size='5'/> 
+            </div>
+        
+        <div class="form-group  col-sm-4">
+            <label for="start_date_trial_period">Start Date Trial Period</label>
+                <input id="start_date_trial_period" value="<?php echo $trainer->start_date_trial_period;?>" name="start_date_trial_period" class='datepicker form-control' size='11' /> 
+	</div>
+         <div class="form-group  col-sm-4">
+            <label for="end_date_trial_period">End Date Trial Period</label>
+            <input id="end_date_trial_period" value="<?php echo $trainer->end_date_trial_period;?>" name="end_date_trial_period" class='datepicker form-control' size='11'/> 
+        </div>	
+        
+    </div>
+    <div class="row">
+        <div class="form-group  col-sm-4">
+             <label for="specialization">Specialization</label>
+             <?php echo $this->tag->textField(["specialization","value"=>$trainer->specialization,"class"=>"form-control"]) ?>
+         </div>
+        <div class="form-group  col-sm-4">
+		<label for="initial_assessment">initial assessment</label>
+		<?php echo $this->tag->textField(["initial_assessment","value"=>$trainer->initial_assessment,"class"=>"form-control"]) ?>
+		</div>	
+        <div class="form-group  col-sm-4">
+            <label for="end_trial_period_assessment">end trial period assessment</label>
+            <?php echo $this->tag->textField(["end_trial_period_assessment","value"=>$trainer->end_trial_period_assessment,"class"=>"form-control"]) ?>
+        </div>	
+    </div>
+    
+    <div class="row">
+        <div class="form-group  col-sm-4">
+		<label for="cv">cv</label>
+		<?php echo $this->tag->textField(["cv","value"=>$trainer->cv,"class"=>"form-control"]) ?>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group  col-sm-6">
+            <?php echo $this->tag->submitButton(["Update","class"=>"btn btn-success"]) ?>
+            <?php echo $this->tag->linkTo(["index/browse", "browse All trainers","class"=>"btn btn-primary"]); ?>
+	 </div>
+    </div>
+    
+</form>
