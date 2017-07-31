@@ -18,52 +18,52 @@
         <div class="row">
             <div class="form-group  col-sm-4">
                 <label for="name">Name</label>
-                <?php echo $this->tag->textField(["name","class"=>"form-control"]) ?>
+                <?php echo $form->render('name',["class"=> "form-control"]); ?>
             </div>
 
             <div class="form-group  col-sm-4">
                     <label for="name">E-Mail</label>
-                    <?php echo $this->tag->textField(["email","class"=>"form-control"]) ?>
+                    <?php echo $form->render("email",["class"=>"form-control"]) ?>
             </div>
             <div class="form-group  col-sm-4">
                 <label for="phone">Phone</label>
-                <?php echo $this->tag->textField(["phone","class"=>"form-control"]) ?>
+                <?php echo $form->render("phone",["class"=>"form-control"]) ?>
             </div>
         </div>
         <div class="row">
             <div class="form-group  col-sm-4">
                 <label for="initial_interview_date">initial Interview Date</label>
-                <input id="initial_interview_date" name="initial_interview_date" class='datepicker form-control' size='5' /> 
+                 <?php echo $form->render("initial_interview_date",["class"=>"datepicker form-control"]) ?>
             </div>
             <div class="form-group  col-sm-4">
                 <label for="start_date_trial_period">Start Date Trial Period</label>
-                <input id="start_date_trial_period" name="start_date_trial_period" class='datepicker form-control' size='11' /> 
+                 <?php echo $form->render("start_date_trial_period",["class"=>"datepicker form-control"]) ?>
             </div>
             <div class="form-group col-sm-4">
                 <label for="end_date_trial_period">End Date Trial Period</label>
-                <input id="end_date_trial_period" name="end_date_trial_period" class='datepicker form-control' size='11'/> 
+                 <?php echo $form->render("end_date_trial_period",["class"=>"datepicker form-control"]) ?>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-sm-4">
-                <label for="specialization">Specialization</label>
-                <?php echo $this->tag->textField(["specialization","class"=>"form-control"]) ?>
+                <label for="spec_id">Specialization</label>
+                <?php echo $form->render("spec_id",["class"=>"form-control"]) ?>
             </div>
             <div class="form-group col-sm-4">
                 <label for="initial_assessment">initial assessment</label>
-                <?php echo $this->tag->textField(["initial_assessment","class"=>"form-control"]) ?>
+                <?php echo $form->render("initial_assessment",["class"=>"form-control"]) ?>
             </div>
 
             <div class="form-group col-sm-4">
                 <label for="end_trial_period_assessment">end Trial Period Assessment</label>
-                <?php echo $this->tag->textField(["end_trial_period_assessment","class"=>"form-control"]) ?>
+                <?php echo $form->render("end_trial_period_assessment",["class"=>"form-control"]) ?>
             </div>
         </div>
         <div class="row">
 
             <div class="form-group col-sm-4">
                 <label for="cv">cv</label>
-                <?php echo $this->tag->textField(["cv","class"=>"form-control"]) ?>
+                <?php echo $form->render("cv",["class"=>"form-control"]) ?>
             </div>
         </div>
         <div class="row">
@@ -71,6 +71,8 @@
                 <?php echo $this->tag->submitButton(["Register","class"=>"btn btn-primary"]) ?>
             
                 <?php echo $this->tag->linkTo(["index/browse", "browse All trainers","class"=>"btn btn-primary"]); ?>
+                
+                <?php echo $this->tag->linkTo(["Specilization", "Add speclization","class"=>"btn btn-primary"]); ?>
             </div>
         </div>
     </div>

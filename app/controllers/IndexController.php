@@ -2,28 +2,53 @@
 
 use Phalcon\Mvc\Controller;
 
-use Phalcon\Tag;
-
 class IndexController extends Controller
 {
 
 	public function indexAction()
 	{
+            $form=new TrainerForm();
+            $this->view->form=$form;
             
-	}
+        }
         public function browseAction(){
             /*
             $query = $this->modelsManager->createQuery("SELECT * FROM trainers");
             $trainers  = $query->execute();
-*/
+            */
             $trainers=  Trainers::find();
             $this->view->trainers=$trainers;
         }
 	public function addAction()
-	{
-            $trainer=new Trainers();
-                
+	{ 
             if ($this->request->isPost()) {
+                $data= $this->request->getPost();
+                $form = new TrainerForm();
+                $trainer=new Trainers();
+                echo $this->request->getPost('initial_interview_date');
+                if ($form->isValid($data,$trainer)) {
+                    $success=$trainer->save();
+                    if ($success) {
+                        echo 'add successfully';
+                    }else{
+                        echo "Sorry, the following problems were generated: ";
+
+                        $messages = $trainer->getMessages();
+
+                        foreach ($messages as $message) {
+                            echo $message->getMessage(), "<br/>";
+                        }
+                    }
+                    $this->view->disable();
+                }  else {
+                    $messages = $form->getMessages();
+
+                    foreach ($messages as $message) {
+                        $this->flash->error($message);
+                    }
+                    $this->flash->error("error input");
+                }
+                /*
                 $success=$trainer->save(
                             $this->request->getPost(),
                             [
@@ -31,7 +56,7 @@ class IndexController extends Controller
                                 'email',
                                 'phone',
                                 'initial_interview_date',
-                                'specialization',
+                                'spec_id',
                                 'start_date_trial_period',
                                 'end_date_trial_period',
                                 'initial_assessment',
@@ -51,6 +76,7 @@ class IndexController extends Controller
                     }
                 }
                 $this->view->disable();
+            */
             }
 	}
     public function deleteAction() {
@@ -73,6 +99,8 @@ class IndexController extends Controller
             if (!$trainer) {
                 $this->flash->error("trainer was not found");
             }else{
+                $form=new TrainerForm();
+                $this->view->form=$form;
                 $this->view->trainer=$trainer;
             }
             
@@ -82,13 +110,21 @@ class IndexController extends Controller
         if ($this->request->isPost()) {
             $id=$this->request->getPost('id');
             $trainer = Trainers::findFirstById($id);
-            if (!$trainer) {
-                $messages = $form->getMessages();
+            $data= $this->request->getPost();
+            $form = new TrainerForm();
+        
+            if ($form->isValid($data,$trainer)) {
+                if (!$trainer->save()) {
+                    $messages = $form->getMessages();
 
-                foreach ($messages as $message) {
-                    $this->flash->error($message);
+                    foreach ($messages as $message) {
+                        $this->flash->error($message);
+                    }
+                }else{
+                    $this->flash->error("updated successfully");
                 }
-            }else{
+                
+            }else{/*
                 $trainer->name=$this->request->getPost('name');
                 $trainer->email=$this->request->getPost('email');
                 $trainer->phone=$this->request->getPost('phone');
@@ -99,15 +135,13 @@ class IndexController extends Controller
                 $trainer->initial_assessment=$this->request->getPost('initial_assessment');
                 $trainer->end_trial_period_assessment=$this->request->getPost('end_trial_period_assessment');
                 $trainer->cv=$this->request->getPost('cv');
-                if (!$trainer->save()) {
-                    $messages = $form->getMessages();
+                */
+                $messages = $form->getMessages();
 
-                    foreach ($messages as $message) {
-                        $this->flash->error($message);
-                    }
-                }else{
-                    $this->flash->error("updated successfully");
+                foreach ($messages as $message) {
+                    $this->flash->error($message);
                 }
+                $this->flash->error("error input");
             }
             
         }

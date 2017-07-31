@@ -19,23 +19,23 @@
             <div class="form-group  col-sm-4">
         	<label for="id">Id</label>
 		<?php 
-                    echo $this->tag->textField(["id","readonly"=>true,"value"=>$trainer->id,"class"=>"form-control"]); ?>
+                    echo $form->render("id",["readonly"=>true,"value"=>$trainer->id,"class"=>"form-control"]); ?>
             </div>
     </div>
     <div class="row">
             <div class="form-group  col-sm-4">
                     <label for="name">Name</label>
-                    <?php echo $this->tag->textField(["name","value"=>$trainer->name,"class"=>"form-control"]); ?>
+                    <?php echo $form->render("name",["value"=>$trainer->name,"class"=>"form-control"]); ?>
             </div>
 
             <div class="form-group  col-sm-4">
                     <label for="name">E-Mail</label>
-                    <?php echo $this->tag->textField(["email","value"=>$trainer->email,"class"=>"form-control"]) ?>
+                    <?php echo $form->render("email",["value"=>$trainer->email,"class"=>"form-control"]) ?>
             </div>
 
             <div class="form-group  col-sm-4">
                     <label for="phone">Phone</label>
-                    <?php echo $this->tag->textField(["phone","value"=>$trainer->phone,"class"=>"form-control"]) ?>
+                    <?php echo $form->render("phone",["value"=>$trainer->phone,"class"=>"form-control"]) ?>
             </div>
     </div>
 
@@ -57,23 +57,23 @@
     </div>
     <div class="row">
         <div class="form-group  col-sm-4">
-             <label for="specialization">Specialization</label>
-             <?php echo $this->tag->textField(["specialization","value"=>$trainer->specialization,"class"=>"form-control"]) ?>
+             <label for="spec_id">Specialization</label>
+             <?php echo $form->render("spec_id",["value"=>$trainer->specialization,"class"=>"form-control"]) ?>
          </div>
         <div class="form-group  col-sm-4">
 		<label for="initial_assessment">initial assessment</label>
-		<?php echo $this->tag->textField(["initial_assessment","value"=>$trainer->initial_assessment,"class"=>"form-control"]) ?>
+		<?php echo $form->render("initial_assessment",["value"=>$trainer->initial_assessment,"class"=>"form-control"]) ?>
 		</div>	
         <div class="form-group  col-sm-4">
             <label for="end_trial_period_assessment">end trial period assessment</label>
-            <?php echo $this->tag->textField(["end_trial_period_assessment","value"=>$trainer->end_trial_period_assessment,"class"=>"form-control"]) ?>
+            <?php echo $form->render("end_trial_period_assessment",["value"=>$trainer->end_trial_period_assessment,"class"=>"form-control"]) ?>
         </div>	
     </div>
     
     <div class="row">
         <div class="form-group  col-sm-4">
 		<label for="cv">cv</label>
-		<?php echo $this->tag->textField(["cv","value"=>$trainer->cv,"class"=>"form-control"]) ?>
+		<?php echo $form->render("cv",["value"=>$trainer->cv,"class"=>"form-control"]) ?>
         </div>
     </div>
     

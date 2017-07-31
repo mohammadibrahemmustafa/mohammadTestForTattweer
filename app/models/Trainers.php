@@ -26,4 +26,10 @@ class Trainers extends Model
 	public $end_trial_period_assessment;
         
         public $cv;
+        public function initialize()
+	{
+		$this->belongsTo('spec_id', 'Specilization', 'id', array(
+			
+		));
+	}
 }

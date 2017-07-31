@@ -8,7 +8,7 @@ use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\Numericality;
 
-class ProductsForm extends Form
+class SpecializationForm extends Form
 {
 
     /**
@@ -16,7 +16,6 @@ class ProductsForm extends Form
      */
     public function initialize($entity = null, $options = array())
     {
-
         if (!isset($options['edit'])) {
             $element = new Text("id");
             $this->add($element->setLabel("Id"));
@@ -34,29 +33,5 @@ class ProductsForm extends Form
         ));
         $this->add($name);
         
-        $email=new Text("email");
-        $email->setLabel('Email');
-        $email->addValidators(array(
-            new PresenceOf(array(
-                'message' => 'Price is required'
-                )
-            ,
-            new Email(array(
-                'message' => 'Price is required'
-                )
-            ))));
-        $this->add($email);
-
-        $phone = new Text("phone");
-        $phone->setLabel("phone");
-        $phone->addValidators(array(
-            new PresenceOf(array(
-                'message' => 'Price is required'
-            )),
-            new Numericality(array(
-                'message' => 'Price is required'
-            ))
-        ));
-        $this->add($phone);
     }
 }
