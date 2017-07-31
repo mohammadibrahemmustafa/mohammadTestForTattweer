@@ -11,6 +11,8 @@
 <?php echo $this->tag->javascriptInclude("js/myplugin.js");?>
 <?php echo $this->tag->javascriptInclude("js/jquery.datetimepicker.full.min.js");?>
 <?php use Phalcon\Tag;?>
+<?php echo Tag::linkTo(['index', 'add new Trainer',"class"=>"btn btn-success pull-right add-trainer"]);?>
+        
 <table class="table main-table table-striped table-bordered text-center" align="center">
     <thead>
         <tr>

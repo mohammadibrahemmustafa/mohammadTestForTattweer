@@ -1,5 +1,6 @@
-
-
+.add-trainer{
+    margin: 25px 15px;
+}
 .main-table thead tr{
     background-color: #44494e;
     color: #fff;

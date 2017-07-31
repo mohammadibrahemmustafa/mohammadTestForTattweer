@@ -42,7 +42,7 @@ class TrainerForm extends Form
                     ,
                     new Email([
                         'message' => 'email not valid'
-                    ]
+                        ]
                     )
                             
             ]);
@@ -61,7 +61,7 @@ class TrainerForm extends Form
         $this->add($phone);
         $type = new Select(
             "spec_id",
-            Specialization::find(),
+            Specilization::find(),
             [
                 "using"      => [
                     "id",

@@ -30,6 +30,8 @@ class IndexController extends Controller
                     $success=$trainer->save();
                     if ($success) {
                         echo 'add successfully';
+                        $response=$this->response;
+                        $response->redirect("index/browse");
                     }else{
                         echo "Sorry, the following problems were generated: ";
 
@@ -88,6 +90,8 @@ class IndexController extends Controller
             }else{
                 $trainer->delete();
                 $this->flash->success("trainer deleted");
+                $response=$this->response;
+                $response->redirect("index/browse");
             }
             
         }
@@ -121,7 +125,10 @@ class IndexController extends Controller
                         $this->flash->error($message);
                     }
                 }else{
-                    $this->flash->error("updated successfully");
+                    $this->flash->success("updated successfully");
+                    $response=$this->response;
+                    $response->redirect("index/browse");
+                    
                 }
                 
             }else{/*
